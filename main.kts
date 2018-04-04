@@ -31,12 +31,8 @@ fun mathOp (first: Int, second: Int, argFunc: (Int, Int) -> Int): Int { //why do
 
 // write a class "Person" with first name, last name and age
 class Person (val firstName: String, val lastName: String, var age: Int) { //why do we need variable types here?
-	val debugString: String = "[Person firstName:${this.firstName} lastName:${this.lastName} age:${this.age}]"
-	// this.age
-	// 	get() = field
-	// 	set(value) {
-	// 		field = value
-	// 	}
+	var debugString: String = ""
+		get() = "[Person firstName:${this.firstName} lastName:${this.lastName} age:${this.age}]"
 }
 
 // write a class "Money"
