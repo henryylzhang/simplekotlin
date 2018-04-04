@@ -15,7 +15,15 @@ fun whenFn (arg : Any): String {
 }
 
 // write an "add" function that takes two Ints, returns an Int, and adds the values
+fun add (first : Int, second : Int): Int {
+    return first + second
+}
+
 // write a "sub" function that takes two Ints, returns an Int, and subtracts the values
+fun sub (first: Int, second: Int) : Int {
+    return first - second
+}
+
 // write a "mathOp" function that takes two Ints and a function (that takes two Ints and returns an Int), returns an Int, and applies the passed-in-function to the arguments
 
 // write a class "Person" with first name, last name and age
@@ -40,29 +48,29 @@ for ((k,v) in when_tests) {
 }
 println("")
 
-// print("Add tests: ")
-// val add_tests = listOf(
-//     Pair(0, 0) to 0,
-//     Pair(1, 2) to 3,
-//     Pair(-2, 2) to 0,
-//     Pair(123, 456) to 579
-// )
-// for ( (k,v) in add_tests) {
-//     print(if (add(k.first, k.second) == v) "." else "!")
-// }
-// println("")
+print("Add tests: ")
+val add_tests = listOf(
+    Pair(0, 0) to 0,
+    Pair(1, 2) to 3,
+    Pair(-2, 2) to 0,
+    Pair(123, 456) to 579
+)
+for ( (k,v) in add_tests) {
+    print(if (add(k.first, k.second) == v) "." else "!")
+}
+println("")
 
-// print("Sub tests: ")
-// val sub_tests = listOf(
-//     Pair(0, 0) to 0,
-//     Pair(2, 1) to 1,
-//     Pair(-2, 2) to -4,
-//     Pair(456, 123) to 333
-// )
-// for ( (k,v) in sub_tests) {
-//     print(if (sub(k.first, k.second) == v) "." else "!")
-// }
-// println("")
+print("Sub tests: ")
+val sub_tests = listOf(
+    Pair(0, 0) to 0,
+    Pair(2, 1) to 1,
+    Pair(-2, 2) to -4,
+    Pair(456, 123) to 333
+)
+for ( (k,v) in sub_tests) {
+    print(if (sub(k.first, k.second) == v) "." else "!")
+}
+println("")
 
 // print("Op tests: ")
 // print(if (mathOp(2, 2, { l,r -> l+r} ) == 4) "." else "!")
