@@ -95,8 +95,7 @@ print("Person tests: ")
 val p1 = Person("Ted", "Neward", 47)
 print(if (p1.firstName == "Ted") "." else "!")
 p1.age = 48
-println(p1.debugString)
-print(if (p1.debugString == "[Person firstName:Ted lastName:Neward age:47]") "." else "!")
+print(if (p1.debugString == "[Person firstName:Ted lastName:Neward age:48]") "." else "!")
 println("")
 
 // print("Money tests: ")
