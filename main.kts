@@ -3,30 +3,41 @@
 println("UW Homework: Simple Kotlin")
 
 // write a "whenFn" that takes an arg of type "Any" and returns a String
-fun whenFn (arg : Any): String {
-    return when (arg) {
-        "Hello" -> "world"
-        "Howdy", "Bonjour" -> "Say what?" // why does the comma but || doesn't?
-        0 -> "zero"
-        1 -> "one"
-        in 2..10 -> "low number"
-        else -> "I don't understand"
-    }
+fun whenFn (arg: Any): String {
+	return when (arg) {
+		"Hello" -> "world"
+		"Howdy", "Bonjour" -> "Say what?" // why does the comma but || doesn't?
+		0 -> "zero"
+		1 -> "one"
+		in 2..10 -> "low number"
+		else -> "I don't understand"
+	}
 }
 
 // write an "add" function that takes two Ints, returns an Int, and adds the values
-fun add (first : Int, second : Int): Int {
-    return first + second
+fun add (first: Int, second: Int): Int {
+	return first + second
 }
 
 // write a "sub" function that takes two Ints, returns an Int, and subtracts the values
 fun sub (first: Int, second: Int) : Int {
-    return first - second
+	return first - second
 }
 
 // write a "mathOp" function that takes two Ints and a function (that takes two Ints and returns an Int), returns an Int, and applies the passed-in-function to the arguments
+fun mathOp (first: Int, second: Int, argFunc: (Int, Int) -> Int): Int { //why do we need an arrow here?
+	return argFunc(first, second)
+}
 
 // write a class "Person" with first name, last name and age
+class Person (val firstName: String, val lastName: String, var age: Int) { //why do we need variable types here?
+	val debugString: String = "[Person firstName:${this.firstName} lastName:${this.lastName} age:${this.age}]"
+	// this.age
+	// 	get() = field
+	// 	set(value) {
+	// 		field = value
+	// 	}
+}
 
 // write a class "Money"
 
@@ -72,20 +83,21 @@ for ( (k,v) in sub_tests) {
 }
 println("")
 
-// print("Op tests: ")
-// print(if (mathOp(2, 2, { l,r -> l+r} ) == 4) "." else "!")
-// print(if (mathOp(2, 2, ::add ) == 4) "." else "!")
-// print(if (mathOp(2, 2, ::sub ) == 0) "." else "!")
-// print(if (mathOp(2, 2, { l,r -> l*r} ) == 4) "." else "!")
-// println("")
+print("Op tests: ")
+print(if (mathOp(2, 2, { l,r -> l+r} ) == 4) "." else "!")
+print(if (mathOp(2, 2, ::add ) == 4) "." else "!")
+print(if (mathOp(2, 2, ::sub ) == 0) "." else "!")
+print(if (mathOp(2, 2, { l,r -> l*r} ) == 4) "." else "!")
+println("")
 
 
-// print("Person tests: ")
-// val p1 = Person("Ted", "Neward", 47)
-// print(if (p1.firstName == "Ted") "." else "!")
-// p1.age = 48
-// print(if (p1.debugString == "[Person firstName:Ted lastName:Neward age:48]") "." else "!")
-// println("")
+print("Person tests: ")
+val p1 = Person("Ted", "Neward", 47)
+print(if (p1.firstName == "Ted") "." else "!")
+p1.age = 48
+println(p1.debugString)
+print(if (p1.debugString == "[Person firstName:Ted lastName:Neward age:47]") "." else "!")
+println("")
 
 // print("Money tests: ")
 // val tenUSD = Money(10, "USD")
