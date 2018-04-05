@@ -47,29 +47,29 @@ class Money (var amount: Int, var currency: String) {
 		when (currency) {
 			"CAN" ->
 				when (toCurr) {
-					"EUR" -> Money((amount.toDouble() * 1.2).toInt(), toCurr)
-					"GBP" -> Money((amount.toDouble() * .4).toInt(), toCurr)
-					"USD" -> Money((amount.toDouble() * .8).toInt(), toCurr) 
+					"EUR" -> return Money((amount.toDouble() * 1.2).toInt(), toCurr)
+					"GBP" -> return Money((amount.toDouble() * .4).toInt(), toCurr)
+					"USD" -> return Money((amount.toDouble() * .8).toInt(), toCurr) 
 				}
 
 			"EUR" ->
 				when (toCurr) {
-					"CAN" -> Money(((amount * 5).toDouble() / 6).toInt(), toCurr)
-					"GBP" -> Money((amount.toDouble() / 3).toInt(), toCurr)
-					"USD" -> Money(((amount * 2).toDouble() / 3).toInt(), toCurr)
+					"CAN" -> return Money(((amount * 5).toDouble() / 6).toInt(), toCurr)
+					"GBP" -> return Money((amount.toDouble() / 3).toInt(), toCurr)
+					"USD" -> return Money(((amount * 2).toDouble() / 3).toInt(), toCurr)
 				}
 			// 12USD = 6GBP = 18 EUR = 15 CAN
 			"GBP" ->
 				when (toCurr) {
-					"CAN" -> Money((amount.toDouble() * 2.5).toInt(), toCurr)
-					"EUR" -> Money((amount.toDouble() * 3).toInt(), toCurr)
-					"USD" -> Money((amount.toDouble() * 2).toInt(), toCurr)
+					"CAN" -> return Money((amount.toDouble() * 2.5).toInt(), toCurr)
+					"EUR" -> return Money((amount.toDouble() * 3).toInt(), toCurr)
+					"USD" -> return Money((amount.toDouble() * 2).toInt(), toCurr)
 				}
 				
 			"USD" ->
 				when (toCurr) {
-					"CAN" -> Money((amount.toDouble() * 1.25).toInt(), toCurr)
-					"EUR" -> Money((amount.toDouble() * 1.5).toInt(), toCurr)
+					"CAN" -> return Money((amount.toDouble() * 1.25).toInt(), toCurr)
+					"EUR" -> return Money((amount.toDouble() * 1.5).toInt(), toCurr)
 					"GBP" -> return Money((amount.toDouble() / 2).toInt(), toCurr)
 				}
 		}
@@ -79,60 +79,60 @@ class Money (var amount: Int, var currency: String) {
 
 // ============ DO NOT EDIT BELOW THIS LINE =============
 
-// print("When tests: ")
-// val when_tests = listOf(
-//     "Hello" to "world",
-//     "Howdy" to "Say what?",
-//     "Bonjour" to "Say what?",
-//     0 to "zero",
-//     1 to "one",
-//     5 to "low number",
-//     9 to "low number",
-//     17.0 to "I don't understand"
-// )
-// for ((k,v) in when_tests) {
-//     print(if (whenFn(k) == v) "." else "!")
-// }
-// println("")
+print("When tests: ")
+val when_tests = listOf(
+    "Hello" to "world",
+    "Howdy" to "Say what?",
+    "Bonjour" to "Say what?",
+    0 to "zero",
+    1 to "one",
+    5 to "low number",
+    9 to "low number",
+    17.0 to "I don't understand"
+)
+for ((k,v) in when_tests) {
+    print(if (whenFn(k) == v) "." else "!")
+}
+println("")
 
-// print("Add tests: ")
-// val add_tests = listOf(
-//     Pair(0, 0) to 0,
-//     Pair(1, 2) to 3,
-//     Pair(-2, 2) to 0,
-//     Pair(123, 456) to 579
-// )
-// for ( (k,v) in add_tests) {
-//     print(if (add(k.first, k.second) == v) "." else "!")
-// }
-// println("")
+print("Add tests: ")
+val add_tests = listOf(
+    Pair(0, 0) to 0,
+    Pair(1, 2) to 3,
+    Pair(-2, 2) to 0,
+    Pair(123, 456) to 579
+)
+for ( (k,v) in add_tests) {
+    print(if (add(k.first, k.second) == v) "." else "!")
+}
+println("")
 
-// print("Sub tests: ")
-// val sub_tests = listOf(
-//     Pair(0, 0) to 0,
-//     Pair(2, 1) to 1,
-//     Pair(-2, 2) to -4,
-//     Pair(456, 123) to 333
-// )
-// for ( (k,v) in sub_tests) {
-//     print(if (sub(k.first, k.second) == v) "." else "!")
-// }
-// println("")
+print("Sub tests: ")
+val sub_tests = listOf(
+    Pair(0, 0) to 0,
+    Pair(2, 1) to 1,
+    Pair(-2, 2) to -4,
+    Pair(456, 123) to 333
+)
+for ( (k,v) in sub_tests) {
+    print(if (sub(k.first, k.second) == v) "." else "!")
+}
+println("")
 
-// print("Op tests: ")
-// print(if (mathOp(2, 2, { l,r -> l+r} ) == 4) "." else "!")
-// print(if (mathOp(2, 2, ::add ) == 4) "." else "!")
-// print(if (mathOp(2, 2, ::sub ) == 0) "." else "!")
-// print(if (mathOp(2, 2, { l,r -> l*r} ) == 4) "." else "!")
-// println("")
+print("Op tests: ")
+print(if (mathOp(2, 2, { l,r -> l+r} ) == 4) "." else "!")
+print(if (mathOp(2, 2, ::add ) == 4) "." else "!")
+print(if (mathOp(2, 2, ::sub ) == 0) "." else "!")
+print(if (mathOp(2, 2, { l,r -> l*r} ) == 4) "." else "!")
+println("")
 
 
-// print("Person tests: ")
-// val p1 = Person("Ted", "Neward", 47)
-// print(if (p1.firstName == "Ted") "." else "!")
-// p1.age = 48
-// print(if (p1.debugString == "[Person firstName:Ted lastName:Neward age:48]") "." else "!")
-// println("")
+print("Person tests: ")
+val p1 = Person("Ted", "Neward", 47)
+print(if (p1.firstName == "Ted") "." else "!")
+p1.age = 48
+print(if (p1.debugString == "[Person firstName:Ted lastName:Neward age:48]") "." else "!")
+println("")
 
 print("Money tests: ")
 val tenUSD = Money(10, "USD")
