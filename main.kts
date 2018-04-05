@@ -73,7 +73,7 @@ class Money (var amount: Int, var currency: String) {
 					"GBP" -> return Money((amount.toDouble() / 2).toInt(), toCurr)
 				}
 		}
-	return this
+ 		return this
 	}
 
 	operator fun plus(other: Money): Money {
